@@ -5,10 +5,10 @@ export const siteConfig = {
   
   // Контакты
   contacts: {
-    whatsapp: "+79999999999",
-    email: "info@example.com",
-    phone: "+79999999999",
-    instagram: "https://instagram.com/",
+    whatsapp: "+77004411994",
+    email: "turembek_b@icloud.com",
+    phone: "+77004411994",
+    instagram: "https://instagram.com/balabi_turembekov",
   },
   
   // Навигация
@@ -71,46 +71,124 @@ export const siteConfig = {
   // Портфолио
   portfolio: [
     {
+      title: "Coffee Website",
+      description: "Современный landing page для кофейного бизнеса с адаптивным дизайном и высокой конверсией",
+      category: "Landing",
+      image: "/coffee.png",
+      link: "https://balabiturembekov.github.io/responsive-coffee-websait/",
+      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+      stats: {
+        conversion: "12.5%",
+        loadTime: "1.2s",
+        mobileScore: "98/100",
+        desktopScore: "100/100"
+      },
+      details: {
+        duration: "7 дней",
+        team: "1 разработчик",
+        features: ["Адаптивный дизайн", "Анимации", "Форма заказа", "SEO-оптимизация"],
+        results: "Увеличение заказов на 40%"
+      }
+    },
+    {
+      title: "Halloween Website",
+      description: "Интерактивный лендинг для Хэллоуина с уникальными анимациями и эффектами",
+      category: "Landing",
+      image: "/halloween.png", 
+      link: "https://balabiturembekov.github.io/responsive-halloween-website/",
+      technologies: ["HTML", "CSS", "JavaScript", "GSAP", "Canvas"],
+      stats: {
+        conversion: "8.3%",
+        loadTime: "1.8s",
+        mobileScore: "95/100",
+        desktopScore: "98/100"
+      },
+      details: {
+        duration: "10 дней",
+        team: "1 разработчик",
+        features: ["Интерактивные анимации", "Звуковые эффекты", "Параллакс", "Мобильная адаптация"],
+        results: "Вирусный эффект в соцсетях"
+      }
+    },
+    {
       title: "E-commerce Platform",
-      description: "Современный интернет-магазин с AI-рекомендациями",
+      description: "Полнофункциональная платформа интернет-магазина с админ-панелью",
       category: "E-commerce",
-      image: "/next.svg",
+      image: "/file.svg",
       link: "#",
+      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Stripe", "MongoDB"],
+      stats: {
+        conversion: "15.2%",
+        loadTime: "0.8s",
+        mobileScore: "99/100",
+        desktopScore: "100/100"
+      },
+      details: {
+        duration: "21 день",
+        team: "2 разработчика",
+        features: ["Корзина покупок", "Онлайн оплата", "Админ-панель", "Аналитика"],
+        results: "Продажи выросли на 200%"
+      }
     },
     {
       title: "AI Chat Bot",
-      description: "Умный бот для поддержки клиентов",
+      description: "Интеллектуальный чат-бот для автоматизации поддержки клиентов",
       category: "AI",
-      image: "/vercel.svg", 
-      link: "#",
-    },
-    {
-      title: "Corporate Website",
-      description: "Корпоративный сайт с современным дизайном",
-      category: "Web",
-      image: "/file.svg",
-      link: "#",
-    },
-    {
-      title: "Mobile App",
-      description: "Мобильное приложение для бизнеса",
-      category: "Mobile",
       image: "/globe.svg",
       link: "#",
+      technologies: ["Python", "OpenAI API", "Telegram Bot", "PostgreSQL"],
+      stats: {
+        responseTime: "0.3s",
+        accuracy: "94%",
+        satisfaction: "4.8/5",
+        automation: "85%"
+      },
+      details: {
+        duration: "14 дней",
+        team: "1 разработчик",
+        features: ["AI-ответы", "Интеграция с CRM", "Аналитика", "Многоязычность"],
+        results: "Снижение нагрузки на поддержку на 70%"
+      }
     },
     {
       title: "CRM System",
-      description: "Система управления клиентами",
+      description: "Система управления клиентами с аналитикой и автоматизацией",
       category: "CRM",
       image: "/window.svg",
       link: "#",
+      technologies: ["React", "Node.js", "Express", "PostgreSQL", "Redis"],
+      stats: {
+        users: "50+",
+        efficiency: "+45%",
+        responseTime: "0.5s",
+        uptime: "99.9%"
+      },
+      details: {
+        duration: "28 дней",
+        team: "3 разработчика",
+        features: ["Управление клиентами", "Аналитика", "Автоматизация", "Интеграции"],
+        results: "Повышение эффективности на 45%"
+      }
     },
     {
-      title: "Landing Page",
-      description: "Высококонверсионный лендинг",
-      category: "Landing",
+      title: "Mobile App",
+      description: "Кроссплатформенное мобильное приложение для бизнеса",
+      category: "Mobile",
       image: "/next.svg",
       link: "#",
+      technologies: ["React Native", "TypeScript", "Firebase", "Redux"],
+      stats: {
+        downloads: "10K+",
+        rating: "4.7/5",
+        crashRate: "0.1%",
+        performance: "95/100"
+      },
+      details: {
+        duration: "35 дней",
+        team: "2 разработчика",
+        features: ["Push-уведомления", "Офлайн режим", "Синхронизация", "Безопасность"],
+        results: "10,000+ активных пользователей"
+      }
     },
   ],
   
@@ -146,7 +224,7 @@ export const siteConfig = {
   faq: [
     {
       question: "Сколько стоит разработка сайта?",
-      answer: "Стоимость зависит от задач и начинается от 30 000 руб. Точный расчет — после обсуждения проекта.",
+      answer: "Стоимость зависит от задач и начинается от 30 000 тг. Точный расчет — после обсуждения проекта.",
     },
     {
       question: "Сколько времени занимает создание сайта?",

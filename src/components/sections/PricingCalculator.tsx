@@ -49,7 +49,7 @@ export function PricingCalculator() {
     {
       id: 'basic',
       name: 'Базовый сайт',
-      basePrice: 50000,
+      basePrice: 120000,
       description: 'Простой сайт-визитка с основным функционалом',
       features: [
         'Адаптивный дизайн',
@@ -63,7 +63,7 @@ export function PricingCalculator() {
     {
       id: 'standard',
       name: 'Стандартный сайт',
-      basePrice: 120000,
+      basePrice: 220000,
       description: 'Корпоративный сайт с расширенным функционалом',
       features: [
         'Все из базового',
@@ -79,7 +79,7 @@ export function PricingCalculator() {
     {
       id: 'premium',
       name: 'Премиум сайт',
-      basePrice: 250000,
+      basePrice: 350000,
       description: 'Сложный проект с уникальным дизайном',
       features: [
         'Все из стандартного',
@@ -97,35 +97,35 @@ export function PricingCalculator() {
     {
       id: 'ai-chat',
       name: 'AI Чат-бот',
-      price: 30000,
+      price: 80000,
       description: 'Умный помощник для клиентов',
       icon: <Zap className="w-5 h-5" />
     },
     {
       id: 'ecommerce',
       name: 'E-commerce',
-      price: 80000,
+      price: 180000,
       description: 'Интернет-магазин с платежами',
       icon: <Target className="w-5 h-5" />
     },
     {
       id: 'mobile-app',
       name: 'Мобильное приложение',
-      price: 150000,
+      price: 350000,
       description: 'Нативное приложение для iOS/Android',
       icon: <Target className="w-5 h-5" />
     },
     {
       id: 'analytics',
       name: 'Продвинутая аналитика',
-      price: 25000,
+      price: 60000,
       description: 'Детальная аналитика и отчеты',
       icon: <TrendingUp className="w-5 h-5" />
     },
     {
       id: 'security',
       name: 'Дополнительная безопасность',
-      price: 20000,
+      price: 40000,
       description: 'SSL, защита от DDoS, бэкапы',
       icon: <Target className="w-5 h-5" />
     }
@@ -372,7 +372,7 @@ export function PricingCalculator() {
                       </div>
                       <p className="text-sm text-gray-400 mb-3">{addon.description}</p>
                       <div className="text-lg font-bold text-green-400">
-                        {addon.price.toLocaleString()}₽
+                        {addon.price.toLocaleString()} тг
                       </div>
                     </CardContent>
                   </Card>
@@ -395,17 +395,17 @@ export function PricingCalculator() {
                   <div className="space-y-2 text-left max-w-md mx-auto">
                     <div className="flex justify-between">
                       <span>Базовый проект:</span>
-                      <span>{calculateBasePrice().toLocaleString()}₽</span>
+                      <span>{calculateBasePrice().toLocaleString()} тг</span>
                     </div>
                     {selectedAddonsData.length > 0 && (
                       <div className="flex justify-between">
                         <span>Дополнительные услуги:</span>
-                        <span>{calculateAddonsPrice().toLocaleString()}₽</span>
+                        <span>{calculateAddonsPrice().toLocaleString()} тг</span>
                       </div>
                     )}
                     <div className="border-t border-white/20 pt-2 flex justify-between text-lg font-bold">
                       <span>Итого:</span>
-                      <span>{calculateTotalPrice().toLocaleString()}₽</span>
+                      <span>{calculateTotalPrice().toLocaleString()} тг</span>
                     </div>
                   </div>
 
@@ -415,7 +415,7 @@ export function PricingCalculator() {
                       size="lg"
                       className="bg-white text-blue-600 hover:bg-gray-100 border-0"
                     >
-                      <a href={`https://wa.me/${siteConfig.contacts.whatsapp}?text=Здравствуйте! Интересует проект стоимостью ${calculateTotalPrice().toLocaleString()}₽.`} target="_blank" rel="noopener noreferrer">
+                      <a href={`https://wa.me/${siteConfig.contacts.whatsapp}?text=Здравствуйте! Интересует проект стоимостью ${calculateTotalPrice().toLocaleString()} тг.`} target="_blank" rel="noopener noreferrer">
                         <Sparkles className="w-5 h-5 mr-2" />
                         Заказать проект
                       </a>

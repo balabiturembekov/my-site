@@ -31,10 +31,10 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
             Наши услуги
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Полный спектр digital-услуг для развития вашего бизнеса с использованием современных технологий
           </p>
         </motion.div>
@@ -43,13 +43,25 @@ export function Services() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
           {siteConfig.services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
+            
+            // Добавляем дополнительные данные для карточек
+            const serviceData = {
+              ...service,
+              badge: index === 0 ? "Популярно" : index === 1 ? "AI" : undefined,
+              duration: index === 0 ? "2-4 недели" : index === 1 ? "1-2 недели" : "3-6 недель",
+              rating: 4.8 + (index * 0.1)
+            };
+            
             return (
               <ServiceCard
                 key={index}
                 icon={IconComponent}
-                title={service.title}
-                description={service.description}
-                features={service.features}
+                title={serviceData.title}
+                description={serviceData.description}
+                features={serviceData.features}
+                badge={serviceData.badge}
+                duration={serviceData.duration}
+                rating={serviceData.rating}
                 className="h-full"
               />
             );

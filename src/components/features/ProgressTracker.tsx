@@ -163,10 +163,18 @@ export function ProgressTracker() {
     }));
   }, []);
 
-  const showLevelUpNotification = () => {
-    // Здесь можно добавить уведомление о повышении уровня
-    console.log(`🎊 Уровень повышен! Текущий уровень: ${currentLevel}`);
-  };
+  const showLevelUpNotification = useCallback(() => {
+    const notification = document.createElement('div');
+    notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-lg shadow-lg z-50';
+    notification.innerHTML = `
+      <div class="flex items-center gap-2">
+        <span>🎉 Уровень повышен!</span>
+        <button onclick="this.parentElement.parentElement.remove()" class="ml-2">×</button>
+      </div>
+    `;
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 3000);
+  }, []);
 
   const addExperience = useCallback((amount: number) => {
     const newExperience = experience + amount;

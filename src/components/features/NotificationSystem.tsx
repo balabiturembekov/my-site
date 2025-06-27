@@ -21,20 +21,20 @@ export function NotificationSystem() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [isVisible, setIsVisible] = useState(false);
 
-  const addNotification = useCallback((notification: Omit<Notification, 'id'>) => {
-    const id = Date.now().toString();
-    const newNotification = { ...notification, id };
-    setNotifications(prev => [...prev, newNotification]);
+  const removeNotification = useCallback((id: string) => {
+    setNotifications(prev => prev.filter(notification => notification.id !== id));
+  }, []);
 
-    // Автоматически удаляем через duration или 5 секунд
+  const addNotification = useCallback((notification: Omit<Notification, 'id'>) => {
+    const id = Math.random().toString(36).substr(2, 9);
+    const newNotification: Notification = { ...notification, id };
+    setNotifications(prev => [...prev, newNotification]);
+    
+    // Автоматически удаляем уведомление через 5 секунд
     setTimeout(() => {
       removeNotification(id);
-    }, notification.duration || 5000);
-  }, []);
-
-  const removeNotification = useCallback((id: string) => {
-    setNotifications(prev => prev.filter(n => n.id !== id));
-  }, []);
+    }, 5000);
+  }, [removeNotification]);
 
   const showAchievement = useCallback((title: string, message: string) => {
     addNotification({

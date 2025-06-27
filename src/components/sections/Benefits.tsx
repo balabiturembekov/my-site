@@ -46,10 +46,10 @@ export function Benefits() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
             Почему выбирают нас?
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Мы не просто создаем сайты и приложения — мы помогаем бизнесу расти и развиваться
           </p>
         </motion.div>
@@ -70,10 +70,10 @@ export function Benefits() {
                   <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <benefit.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
                     {benefit.description}
                   </p>
                 </CardContent>

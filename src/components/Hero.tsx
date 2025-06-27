@@ -1,10 +1,29 @@
 "use client";
 
+import { Typewriter } from "@/components/features/Typewriter";
+
 export default function Hero() {
+  const typewriterWords = [
+    "Современные сайты",
+    "AI-боты", 
+    "Автоматизацию",
+    "Интеграции",
+    "WOW-результат"
+  ];
+
   return (
     <section className="relative flex flex-col items-center justify-center min-h-[80vh] pt-32 pb-12 text-center overflow-hidden">
-      <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 to-green-500 text-transparent bg-clip-text animate-fade-in-up">
-        Современные сайты и AI-боты для вашего бизнеса
+      <h1 className="text-4xl md:text-6xl font-extrabold mb-4 animate-fade-in-up">
+        <Typewriter 
+          words={typewriterWords}
+          speed={150}
+          delay={2500}
+          color="gradient"
+        />
+        <br />
+        <span className="text-gray-800 dark:text-gray-200">
+          для вашего бизнеса
+        </span>
       </h1>
       <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
         Разработка, автоматизация, интеграция искусственного интеллекта. Быстро. Качественно. WOW-результат.

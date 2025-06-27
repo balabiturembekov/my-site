@@ -1,4 +1,5 @@
 import { Code, Bot, Settings, BarChart, Brain } from "lucide-react";
+import { Typewriter } from "@/components/features/Typewriter";
 
 const services = [
   { icon: Code, title: "Разработка сайтов", desc: "Сайты, лендинги, интернет-магазины под ключ." },
@@ -9,10 +10,20 @@ const services = [
 ];
 
 export default function Services() {
+  const serviceWords = ["Услуги", "Решения", "Технологии", "Инновации"];
+
   return (
     <section id="services" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">Услуги</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+          <Typewriter 
+            words={serviceWords}
+            speed={120}
+            delay={3000}
+            color="green"
+            className="text-3xl md:text-4xl font-bold"
+          />
+        </h2>
         <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-5">
           {services.map((s, i) => (
             <div key={i} className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow group">

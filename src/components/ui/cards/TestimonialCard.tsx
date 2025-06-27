@@ -53,7 +53,7 @@ export function TestimonialCard({ name, role, company, text, avatar, rating, cla
           <div className="flex items-center gap-3">
             <div className="relative w-12 h-12 mr-4">
               {avatar ? (
-                <Image src={avatar} alt={name} fill className="rounded-full object-cover" />
+                <Image src={avatar} alt={name} fill sizes="48px" className="rounded-full object-cover" />
               ) : (
                 <span className="flex items-center justify-center w-full h-full text-lg font-bold bg-gray-200 rounded-full">{name.charAt(0).toUpperCase()}</span>
               )}
