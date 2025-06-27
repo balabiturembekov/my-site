@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "@/components/features/Typewriter";
-import Image from "next/image";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 const categories = ["Все", "Web", "Mobile", "AI", "E-commerce", "CRM", "Landing"];
 const projects = [
@@ -93,7 +93,16 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           ×
         </button>
         <div className="relative w-full h-56 mb-4 rounded-xl overflow-hidden">
-          <Image src={project.img} alt={project.title} fill sizes="(max-width: 768px) 100vw, 400px" className="object-cover" />
+          <OptimizedImage
+            src={project.img.endsWith('.png') ? project.img.replace('.png', '.webp') : project.img}
+            alt={project.title}
+            width={600}
+            height={224}
+            sizes="(max-width: 768px) 100vw, 400px"
+            placeholder="blur"
+            priority={true}
+            className="object-cover w-full h-full"
+          />
         </div>
         <div className="font-bold text-2xl mb-2 text-blue-900">{project.title}</div>
         <div className="text-gray-600 mb-4">{project.desc}</div>
@@ -169,7 +178,16 @@ export default function Portfolio() {
                 onClick={() => setModalProject(p)}
               >
                 <div className="relative w-full h-56">
-                  <Image src={p.img} alt={p.title} fill sizes="(max-width: 768px) 100vw, 400px" className="object-cover" />
+                  <OptimizedImage
+                    src={p.img.endsWith('.png') ? p.img.replace('.png', '.webp') : p.img}
+                    alt={p.title}
+                    width={600}
+                    height={224}
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    placeholder="blur"
+                    priority={i === 0}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="font-bold text-lg mb-1 text-blue-900 group-hover:text-blue-700 transition-colors">{p.title}</div>

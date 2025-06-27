@@ -5,12 +5,28 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Typewriter } from 'react-simple-typewriter';
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { HeroWave } from "@/components/ui/HeroWave";
 
 export function Hero() {
   const whatsappUrl = `https://wa.me/${siteConfig.contacts.whatsapp}?text=Здравствуйте! Хочу обсудить проект.`;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
+      {/* Hero Image (LCP) */}
+      <div className="absolute inset-0 z-0">
+        <OptimizedImage
+          src="/hero.webp"
+          alt="Современный сайт и AI-боты"
+          width={1920}
+          height={900}
+          priority={true}
+          placeholder="blur"
+          sizes="(max-width: 768px) 100vw, 1920px"
+          className="w-full h-full object-cover object-top opacity-90"
+        />
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Orbs */}
@@ -50,10 +66,8 @@ export function Hero() {
             ease: "linear",
           }}
         />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
-
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
       <div className="relative z-10 container mx-auto px-4 pt-32 pb-16 text-center">
         {/* Badge */}
@@ -168,14 +182,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Wave SVG */}
-      <svg 
-        className="absolute bottom-0 left-0 w-full h-24 text-gray-100" 
-        viewBox="0 0 1440 320" 
-        fill="currentColor"
-      >
-        <path d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
-      </svg>
+      <HeroWave className="absolute bottom-0 left-0 w-full h-24 text-gray-100" />
     </section>
   );
 } 
