@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Digital Studio",
   description: "Современные сайты и AI-боты для вашего бизнеса",
-  url: "https://example.com",
+  url: "https://kazdigitalai.com",
   
   // Контакты
   contacts: {

@@ -255,7 +255,7 @@ export function AchievementSystem() {
     const timeInterval = setInterval(() => {
       const timeSpent = Math.floor((Date.now() - startTime) / 1000);
       sessionStorage.setItem('timeSpent', timeSpent.toString());
-    }, 1000);
+    }, 5000);
 
     // Отслеживаем взаимодействия
     const handleInteraction = () => {
@@ -265,10 +265,10 @@ export function AchievementSystem() {
 
     document.addEventListener('click', handleInteraction);
 
-    // Проверяем достижения каждые 2 секунды
+    // Проверяем достижения каждые 5 секунд (было 2)
     const achievementInterval = setInterval(() => {
       checkAchievements();
-    }, 2000);
+    }, 5000);
 
     return () => {
       clearInterval(timeInterval);
@@ -276,6 +276,21 @@ export function AchievementSystem() {
       document.removeEventListener('click', handleInteraction);
     };
   }, [isClient, checkAchievements]);
+
+  // Показываем панель достижений только после первого взаимодействия на мобильных
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      setShowPanel(true);
+      return;
+    }
+    const show = () => setShowPanel(true);
+    window.addEventListener('scroll', show, { once: true });
+    window.addEventListener('click', show, { once: true });
+    return () => {
+      window.removeEventListener('scroll', show);
+      window.removeEventListener('click', show);
+    };
+  }, []);
 
   const getCategoryColor = (category: string) => {
     switch (category) {

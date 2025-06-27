@@ -78,10 +78,19 @@ export function NotificationSystem() {
     });
   }, [addNotification]);
 
+  // Показываем уведомления только после первого взаимодействия на мобильных
   useEffect(() => {
-    // Показываем уведомления через 3 секунды
-    const timer = setTimeout(() => setIsVisible(true), 3000);
-    return () => clearTimeout(timer);
+    if (window.innerWidth > 768) {
+      setIsVisible(true);
+      return;
+    }
+    const show = () => setIsVisible(true);
+    window.addEventListener('scroll', show, { once: true });
+    window.addEventListener('click', show, { once: true });
+    return () => {
+      window.removeEventListener('scroll', show);
+      window.removeEventListener('click', show);
+    };
   }, []);
 
   useEffect(() => {

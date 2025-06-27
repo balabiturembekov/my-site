@@ -91,7 +91,7 @@ export function PortfolioCard({
           <div className="relative overflow-hidden">
             <div className="relative w-full h-56">
               <Image 
-                src={image} 
+                src={image.endsWith('.png') ? image.replace('.png', '.webp') : image} 
                 alt={title} 
                 fill 
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px" 
@@ -100,6 +100,7 @@ export function PortfolioCard({
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                onError={(e) => { if (image.endsWith('.png')) e.currentTarget.src = image; }}
               />
               
               {/* Gradient Overlay */}
@@ -255,13 +256,14 @@ export function PortfolioCard({
                 {/* Image */}
                 <div className="relative h-64 rounded-lg overflow-hidden">
                   <Image 
-                    src={image} 
+                    src={image.endsWith('.png') ? image.replace('.png', '.webp') : image} 
                     alt={title} 
                     fill 
                     sizes="(max-width: 768px) 100vw, 800px"
                     className="object-cover" 
                     priority={false}
                     loading="lazy"
+                    onError={(e) => { if (image.endsWith('.png')) e.currentTarget.src = image; }}
                   />
                 </div>
                 

@@ -9,7 +9,6 @@ import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { ClientOnly } from "@/components/ui/client-only";
 import { ErrorBoundary } from "@/components/ui/error-boundary";
-import { TestHydration } from "@/components/ui/test-hydration";
 import {
   AIProjectAnalyzer,
   PricingCalculator,
@@ -61,13 +60,6 @@ export default function Home() {
         <Testimonials />
         <FAQ />
         <Contact />
-        <div className="w-full max-w-4xl mx-auto p-6">
-          <ErrorBoundary>
-            <ClientOnly>
-              <TestHydration />
-            </ClientOnly>
-          </ErrorBoundary>
-        </div>
       </main>
       <Footer />
 

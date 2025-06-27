@@ -45,7 +45,17 @@ export function MorphingShapes() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    if (window.innerWidth > 768) {
+      setIsClient(true);
+      return;
+    }
+    const show = () => setIsClient(true);
+    window.addEventListener('scroll', show, { once: true });
+    window.addEventListener('click', show, { once: true });
+    return () => {
+      window.removeEventListener('scroll', show);
+      window.removeEventListener('click', show);
+    };
   }, []);
 
   useEffect(() => {

@@ -103,10 +103,10 @@ export function SmartCTA() {
   useEffect(() => {
     if (!isClient) return;
     
-    // Меняем сообщения каждые 8 секунд
+    // Меняем сообщения каждые 15 секунд
     const interval = setInterval(() => {
       setCurrentMessage((prev) => (prev + 1) % ctaMessages.length);
-    }, 8000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [isClient, ctaMessages.length]);
@@ -130,6 +130,22 @@ export function SmartCTA() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('click', handleClick);
+    };
+  }, [isClient]);
+
+  // Показываем CTA только после первого взаимодействия на мобильных
+  useEffect(() => {
+    if (!isClient) return;
+    if (window.innerWidth > 768) {
+      setIsVisible(true);
+      return;
+    }
+    const show = () => setIsVisible(true);
+    window.addEventListener('scroll', show, { once: true });
+    window.addEventListener('click', show, { once: true });
+    return () => {
+      window.removeEventListener('scroll', show);
+      window.removeEventListener('click', show);
     };
   }, [isClient]);
 

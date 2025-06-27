@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  keywords: "разработка сайтов, AI-боты, автоматизация, веб-разработка, чат-боты, SEO",
+  keywords: "разработка сайтов, AI-боты, автоматизация, веб-разработка, чат-боты, SEO, digital, kazdigitalai, студия, фрилансер, Казахстан, Алматы, Астана, заказать сайт, заказать бота, интеграция AI, продвижение, мобильная разработка, UX, UI, дизайн, маркетинг, IT",
   authors: [{ name: "Digital Studio" }],
   creator: "Digital Studio",
   publisher: siteConfig.name,
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL("https://kazdigitalai.com"),
   alternates: {
-    canonical: '/',
+    canonical: 'https://kazdigitalai.com/',
   },
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: siteConfig.url,
+    url: 'https://kazdigitalai.com/',
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
@@ -51,6 +51,8 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: ['/coffee.png'],
+    site: '@kazdigitalai',
+    creator: '@kazdigitalai',
   },
   robots: {
     index: true,
@@ -67,15 +69,17 @@ export const metadata: Metadata = {
     google: 'l4ACBMHVV2XkazVdqXCBG3GUmXYtkZtfJYvaXapfM8g',
     yandex: 'your-yandex-verification-code',
   },
-  other: {
-    'mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-status-bar-style': 'default',
-    'apple-mobile-web-app-title': siteConfig.name,
-    'application-name': siteConfig.name,
-    'msapplication-TileColor': '#000000',
-    'theme-color': '#000000',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'mask-icon',
+      url: '/safari-pinned-tab.svg',
+      color: '#000000',
+    },
   },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
@@ -87,6 +91,8 @@ export default function RootLayout({
     <html lang="ru" className={inter.variable}>
       <head>
         {/* Preload критических ресурсов */}
+        <link rel="preload" href="/coffee.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/halloween.webp" as="image" type="image/webp" />
         <link rel="preload" href="/coffee.png" as="image" type="image/png" />
         <link rel="preload" href="/halloween.png" as="image" type="image/png" />
         
