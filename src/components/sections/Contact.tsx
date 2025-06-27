@@ -273,6 +273,7 @@ export function Contact() {
                           size="sm"
                           onClick={() => copyToClipboard(method.value, method.title)}
                           className="h-8 w-8 p-0"
+                          aria-label={`Скопировать ${method.title}`}
                         >
                           {copiedField === method.title ? (
                             <Check className="w-4 h-4 text-green-600" />
@@ -285,6 +286,7 @@ export function Contact() {
                           size="sm"
                           asChild
                           className="h-8 w-8 p-0"
+                          aria-label={`Открыть ${method.title}`}
                         >
                           <a href={method.link} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="w-4 h-4" />
@@ -313,6 +315,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.label}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -459,8 +462,11 @@ export function Contact() {
 
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
+                          <label htmlFor="contact-service">Бюджет проекта</label>
                           <select
                             {...register("budget")}
+                            id="contact-service"
+                            name="service"
                             className="w-full h-12 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-blue-500 px-3 bg-white"
                           >
                             <option value="">Бюджет проекта</option>
@@ -470,8 +476,11 @@ export function Contact() {
                           </select>
                         </div>
                         <div>
+                          <label htmlFor="contact-timeline">Сроки проекта</label>
                           <select
                             {...register("timeline")}
+                            id="contact-timeline"
+                            name="timeline"
                             className="w-full h-12 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-blue-500 px-3 bg-white"
                           >
                             <option value="">Сроки проекта</option>

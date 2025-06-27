@@ -74,7 +74,7 @@ export const siteConfig = {
       title: "Coffee Website",
       description: "Современный landing page для кофейного бизнеса с адаптивным дизайном и высокой конверсией",
       category: "Landing",
-      image: "/coffee.png",
+      image: "/coffee.webp",
       link: "https://balabiturembekov.github.io/responsive-coffee-websait/",
       technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
       stats: {
@@ -94,7 +94,7 @@ export const siteConfig = {
       title: "Halloween Website",
       description: "Интерактивный лендинг для Хэллоуина с уникальными анимациями и эффектами",
       category: "Landing",
-      image: "/halloween.png", 
+      image: "/halloween.webp", 
       link: "https://balabiturembekov.github.io/responsive-halloween-website/",
       technologies: ["HTML", "CSS", "JavaScript", "GSAP", "Canvas"],
       stats: {
@@ -199,7 +199,7 @@ export const siteConfig = {
       role: "CEO",
       company: "Beauty Studio",
       text: "Очень довольна работой! Всё быстро, качественно и с заботой о деталях. Сайт приносит реальные заявки.",
-      avatar: "/avatars/anna.jpg",
+      avatar: "/avatars/anna.webp",
       rating: 5,
     },
     {
@@ -207,7 +207,7 @@ export const siteConfig = {
       role: "Founder", 
       company: "TechnoMarket",
       text: "Сайт и бот сделали под ключ, результат превзошёл ожидания! Продажи выросли на 40%.",
-      avatar: "/avatars/igor.jpg",
+      avatar: "/avatars/igor.webp",
       rating: 5,
     },
     {
@@ -215,7 +215,7 @@ export const siteConfig = {
       role: "Director",
       company: "Online School",
       text: "AI-автоматизация помогла увеличить продажи и снизить нагрузку на менеджеров. Рекомендую!",
-      avatar: "/avatars/maria.jpg", 
+      avatar: "/avatars/maria.webp", 
       rating: 5,
     },
   ],

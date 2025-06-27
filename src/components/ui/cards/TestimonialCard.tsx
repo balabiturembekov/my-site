@@ -50,8 +50,8 @@ export function TestimonialCard({ name, role, company, text, avatar, rating, cla
           </p>
           
           {/* Author */}
-          <div className="flex items-center gap-3">
-            <div className="relative w-12 h-12 mr-4">
+          <div className="flex items-center gap-3 md:flex-row flex-col text-center md:text-left mt-4">
+            <div className="relative w-12 h-12 md:mr-4 mb-2 md:mb-0 mx-auto md:mx-0">
               {avatar ? (
                 <Image src={avatar} alt={name} width={48} height={48} className="rounded-full object-cover" />
               ) : (

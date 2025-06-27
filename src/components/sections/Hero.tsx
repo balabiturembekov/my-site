@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Typewriter } from 'react-simple-typewriter';
-import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { HeroWave } from "@/components/ui/HeroWave";
 
 export function Hero() {
@@ -13,20 +12,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
-      {/* Hero Image (LCP) */}
-      <div className="absolute inset-0 z-0">
-        <OptimizedImage
-          src="/hero.webp"
-          alt="Современный сайт и AI-боты"
-          width={1920}
-          height={900}
-          priority={true}
-          placeholder="blur"
-          sizes="(max-width: 768px) 100vw, 1920px"
-          className="w-full h-full object-cover object-top opacity-90"
-        />
-      </div>
-
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Orbs */}
@@ -92,7 +77,7 @@ export function Hero() {
           <span className="invisible absolute pointer-events-none select-none">
             {['Современные сайты', 'AI-боты', 'Автоматизация бизнеса'].reduce((a, b) => a.length > b.length ? a : b)}
           </span>
-          <span className="inline-block align-top relative">
+          <span className="inline-block align-top relative bg-gradient-to-r from-gray-900 via-blue-800 to-cyan-600 bg-clip-text text-transparent">
             <Typewriter
               words={['Современные сайты', 'AI-боты', 'Автоматизация бизнеса']}
               loop={0}

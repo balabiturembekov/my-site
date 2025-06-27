@@ -136,6 +136,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={social.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -283,6 +284,7 @@ export function Footer() {
             
             <motion.button
               onClick={scrollToTop}
+              aria-label="Наверх"
               whileHover={{ y: -2, scale: 1.05 }}
               className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 hover:from-blue-500/30 hover:to-cyan-500/30 flex items-center justify-center text-white transition-all duration-300 border border-white/10 hover:border-white/20"
             >
