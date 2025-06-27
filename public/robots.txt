@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
-Disallow: /api/
+
+# Sitemap
 Sitemap: https://kazdigitalai.com/sitemap.xml
+
+# Crawl-delay для уважительного отношения к серверу
+Crawl-delay: 1
+
+# Запрет доступа к служебным файлам
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Разрешение доступа к статическим ресурсам
+Allow: /static/
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+Allow: /*.webp
+Allow: /*.avif

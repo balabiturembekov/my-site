@@ -3,6 +3,57 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Критические стили для быстрой загрузки */
+@layer base {
+  /* Оптимизация для мобильных устройств */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Оптимизация для touch устройств */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Улучшение производительности анимаций */
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Оптимизация для мобильных изображений */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Улучшение доступности фокуса */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  
+  /* Оптимизация для мобильных кнопок */
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Улучшение читаемости на мобильных */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px; /* Предотвращает zoom на iOS */
+    }
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -112,11 +163,52 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+/* Оптимизация анимаций для мобильных */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  body {
-    @apply bg-background text-foreground;
+}
+
+/* Оптимизация для мобильных устройств */
+@media (max-width: 768px) {
+  /* Уменьшение размера шрифтов для мобильных */
+  .text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  /* Оптимизация отступов */
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-6 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Оптимизация высоты изображений */
+  .h-56 {
+    height: 12rem;
+  }
+  
+  .h-64 {
+    height: 14rem;
   }
 }

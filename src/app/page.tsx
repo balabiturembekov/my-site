@@ -2,24 +2,26 @@ import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Benefits } from "@/components/sections/Benefits";
-import { AIProjectAnalyzer } from "@/components/sections/AIProjectAnalyzer";
-import { PricingCalculator } from "@/components/sections/PricingCalculator";
-import { ProgressTracker } from "@/components/features/ProgressTracker";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
-import { LiveChatWidget } from "@/components/features/LiveChatWidget";
-import { MorphingShapes } from "@/components/features/MorphingShapes";
-import { SmartCTA } from "@/components/features/SmartCTA";
 import { ClientOnly } from "@/components/ui/client-only";
 import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { TestHydration } from "@/components/ui/test-hydration";
-import { NotificationSystem } from "@/components/features/NotificationSystem";
-import { ParticleBackground } from "@/components/features/ParticleBackground";
-import { ThemeToggle } from "@/components/features/ThemeToggle";
-import { AchievementSystem } from "@/components/features/AchievementSystem";
+import {
+  AIProjectAnalyzer,
+  PricingCalculator,
+  ProgressTracker,
+  MorphingShapes,
+  LiveChatWidget,
+  SmartCTA,
+  NotificationSystem,
+  ThemeToggle,
+  AchievementSystem,
+  ParticleBackground
+} from "@/components/LazyComponents";
 
 export default function Home() {
   return (

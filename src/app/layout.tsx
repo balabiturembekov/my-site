@@ -4,7 +4,15 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+// Оптимизация шрифтов
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -59,6 +67,15 @@ export const metadata: Metadata = {
     google: 'l4ACBMHVV2XkazVdqXCBG3GUmXYtkZtfJYvaXapfM8g',
     yandex: 'your-yandex-verification-code',
   },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': siteConfig.name,
+    'application-name': siteConfig.name,
+    'msapplication-TileColor': '#000000',
+    'theme-color': '#000000',
+  },
 };
 
 export default function RootLayout({
@@ -67,7 +84,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru" className={inter.variable}>
+      <head>
+        {/* Preload критических ресурсов */}
+        <link rel="preload" href="/coffee.png" as="image" type="image/png" />
+        <link rel="preload" href="/halloween.png" as="image" type="image/png" />
+        
+        {/* DNS prefetch для внешних ресурсов */}
+        <link rel="dns-prefetch" href="//mc.yandex.ru" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Preconnect для критических доменов */}
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Manifest для PWA */}
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      </head>
       <body
         className={`${inter.className} antialiased`}
       >
@@ -90,8 +128,28 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+          id="service-worker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
         <noscript>
           <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="https://mc.yandex.ru/watch/103101824" style={{ position: "absolute", left: "-9999px" }} alt="" />
           </div>
         </noscript>
