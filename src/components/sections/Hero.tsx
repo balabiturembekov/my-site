@@ -86,9 +86,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight min-h-[80px] relative"
         >
-          <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-cyan-600 bg-clip-text text-transparent">
+          {/* Скрытый span для автоопределения ширины typewriter */}
+          <span className="invisible absolute pointer-events-none select-none">
+            {['Современные сайты', 'AI-боты', 'Автоматизация бизнеса'].reduce((a, b) => a.length > b.length ? a : b)}
+          </span>
+          <span className="inline-block align-top relative">
             <Typewriter
               words={['Современные сайты', 'AI-боты', 'Автоматизация бизнеса']}
               loop={0}
@@ -98,6 +102,13 @@ export function Hero() {
               deleteSpeed={50}
               delaySpeed={1500}
             />
+            {/* Курсор typewriter делаем абсолютным, чтобы не влиял на ширину */}
+            <style jsx>{`
+              .styles-module_blinkingCursor__yugAC {
+                position: absolute !important;
+                right: 0;
+              }
+            `}</style>
           </span>
         </motion.h1>
 
@@ -106,7 +117,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed min-h-[48px]"
         >
           {siteConfig.hero.subtitle}
         </motion.p>
