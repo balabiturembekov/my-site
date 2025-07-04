@@ -21,8 +21,6 @@ import {
   Clock,
   Instagram,
   Facebook,
-  Twitter,
-  Linkedin,
   Zap,
   Shield,
   Heart,
