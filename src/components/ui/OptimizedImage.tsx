@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { ImageProps } from 'next/image';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -37,8 +38,9 @@ export function OptimizedImage({
   const [hasError, setHasError] = useState(false);
 
   const restProps = props;
-  const imageProps: Record<string, unknown> = {
+  const imageProps: ImageProps = {
     src,
+    alt,
     fill,
     sizes,
     placeholder,
@@ -78,7 +80,6 @@ export function OptimizedImage({
     <div className={cn("relative", className)}>
       <Image
         {...imageProps}
-        alt={typeof alt === 'string' ? alt : ''}
       />
       
       {/* Loading skeleton */}
