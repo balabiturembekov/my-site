@@ -8,7 +8,9 @@ export const siteConfig = {
     whatsapp: "+77004411994",
     email: "turembek_b@icloud.com",
     phone: "+77004411994",
-    instagram: "https://instagram.com/balabi_turembekov",
+    instagram: "https://instagram.com/kazdigitalai",
+    telegram: "https://t.me/turembekovb",
+    github: "https://github.com/balabiturembekov",
   },
   
   // Навигация

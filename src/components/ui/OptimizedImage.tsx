@@ -10,6 +10,7 @@ interface OptimizedImageProps {
   fill?: boolean;
   sizes?: string;
   priority?: boolean;
+  style?: React.CSSProperties;
   className?: string;
   placeholder?: 'blur' | 'empty';
   blurDataURL?: string;
@@ -35,6 +36,32 @@ export function OptimizedImage({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
+  const restProps = props;
+  const imageProps: Record<string, unknown> = {
+    src,
+    fill,
+    sizes,
+    placeholder,
+    blurDataURL: blurDataURL || "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==",
+    quality,
+    onLoad: () => setIsLoading(false),
+    onError: () => setHasError(true),
+    className: cn(
+      "transition-opacity duration-300",
+      isLoading ? "opacity-0" : "opacity-100"
+    ),
+    ...restProps,
+  };
+  if (!fill) {
+    imageProps.width = width;
+    imageProps.height = height;
+  }
+  if (priority) {
+    imageProps.priority = true;
+  } else {
+    imageProps.loading = loading;
+  }
+
   // Fallback для ошибок загрузки
   if (hasError) {
     return (
@@ -50,24 +77,8 @@ export function OptimizedImage({
   return (
     <div className={cn("relative", className)}>
       <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        fill={fill}
-        sizes={sizes}
-        priority={priority}
-        placeholder={placeholder}
-        blurDataURL={blurDataURL || "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="}
-        quality={quality}
-        loading={loading}
-        onLoad={() => setIsLoading(false)}
-        onError={() => setHasError(true)}
-        className={cn(
-          "transition-opacity duration-300",
-          isLoading ? "opacity-0" : "opacity-100"
-        )}
-        {...props}
+        {...imageProps}
+        alt={typeof alt === 'string' ? alt : ''}
       />
       
       {/* Loading skeleton */}

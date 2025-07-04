@@ -32,7 +32,8 @@ import {
   Copy,
   Check,
   AlertTriangle,
-  Loader2
+  Loader2,
+  Github
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
@@ -142,8 +143,8 @@ export function Contact() {
   const socialLinks = [
     { icon: Instagram, href: siteConfig.contacts.instagram, label: "Instagram", color: "text-pink-600" },
     { icon: Facebook, href: "#", label: "Facebook", color: "text-blue-600" },
-    { icon: Twitter, href: "#", label: "Twitter", color: "text-sky-600" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", color: "text-blue-700" }
+    { icon: Send, href: siteConfig.contacts.telegram, label: "Telegram", color: "text-sky-600" },
+    { icon: Github, href: siteConfig.contacts.github, label: "Github", color: "text-blue-700" }
   ];
 
   const budgetOptions = [

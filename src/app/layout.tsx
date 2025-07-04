@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: '/coffee.png',
+        url: '/coffee.webp',
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ['/coffee.png'],
+    images: ['/coffee.webp'],
     site: '@kazdigitalai',
     creator: '@kazdigitalai',
   },
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
+    shortcut: '/favicon-16x16.ico',
     apple: '/apple-touch-icon.png',
     other: {
       rel: 'mask-icon',
@@ -90,11 +90,6 @@ export default function RootLayout({
   return (
     <html lang="ru" className={inter.variable}>
       <head>
-        {/* Preload критических ресурсов */}
-        <link rel="preload" href="/coffee.webp" as="image" type="image/webp" />
-        <link rel="preload" href="/halloween.webp" as="image" type="image/webp" />
-        <link rel="preload" href="/coffee.png" as="image" type="image/png" />
-        <link rel="preload" href="/halloween.png" as="image" type="image/png" />
         
         {/* DNS prefetch для внешних ресурсов */}
         <link rel="dns-prefetch" href="//mc.yandex.ru" />
@@ -110,7 +105,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico" />
       </head>
       <body
         className={`${inter.className} antialiased`}

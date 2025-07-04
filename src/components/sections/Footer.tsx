@@ -4,21 +4,19 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Instagram, 
+  Instagram,
   Mail, 
   Phone, 
   MessageCircle, 
   ArrowUp, 
   Facebook, 
-  Twitter, 
-  Linkedin, 
-  Youtube, 
   Github, 
   MapPin, 
   Clock,
   Heart,
   Shield,
-  Zap
+  Zap,
+  Send
 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
@@ -32,10 +30,8 @@ export function Footer() {
   const socialLinks = [
     { icon: Instagram, href: siteConfig.contacts.instagram, label: "Instagram" },
     { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Github, href: siteConfig.contacts.github, label: "GitHub" },
+    { icon: Send, href: siteConfig.contacts.telegram, label: "Telegram" },
   ];
 
   const quickLinks = [
@@ -235,7 +231,7 @@ export function Footer() {
                 className="group rounded-full px-8 py-6 text-lg font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 border-0 shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-5 h-5 mr-2" />
+                  <MessageCircle className="w-5 h-5" />
                   Написать в WhatsApp
                 </a>
               </Button>
@@ -243,10 +239,10 @@ export function Footer() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="group rounded-full px-8 py-6 text-lg font-semibold border-white/20 text-white hover:bg-white/10 transition-all duration-300"
+                className="group rounded-full px-8 py-6 text-lg font-semibold border-white/20 text-white transition-all duration-300 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hover:scale-105"
               >
                 <a href={`mailto:${siteConfig.contacts.email}`}>
-                  <Mail className="w-5 h-5 mr-2" />
+                  <Mail className="w-5 h-5 text-white" />
                   Написать на почту
                 </a>
               </Button>
@@ -274,10 +270,10 @@ export function Footer() {
               asChild
               size="sm"
               variant="outline"
-              className="rounded-full border-gray-700 text-gray-300 hover:text-white hover:border-gray-600 transition-all duration-300"
+              className="rounded-full border-gray-700 text-gray-300 hover:text-white hover:border-gray-600 transition-all duration-300 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <MessageCircle className="w-4 h-4 text-white" />
                 Быстрый заказ
               </a>
             </Button>
