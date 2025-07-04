@@ -8,7 +8,7 @@ export interface Notification {
   duration?: number;
 }
 
-interface NotificationState {
+export interface NotificationState {
   notifications: Notification[];
   add: (n: Omit<Notification, 'id'>) => string;
   remove: (id: string) => void;

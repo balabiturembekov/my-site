@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Trophy, Star, Zap, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useNotificationStore } from '@/store/notifications';
+import type { Notification, NotificationState } from '@/store/notifications';
 
 export interface NotificationProps {
   id: string;
@@ -111,12 +112,12 @@ export function Notification({
 }
 
 export function NotificationManager() {
-  const notifications = useNotificationStore((s) => s.notifications);
-  const remove = useNotificationStore((s) => s.remove);
+  const notifications = useNotificationStore((s: NotificationState) => s.notifications);
+  const remove = useNotificationStore((s: NotificationState) => s.remove);
 
   return (
     <div className="fixed top-4 right-4 z-50 space-y-2">
-      {notifications.map((notification) => (
+      {notifications.map((notification: Notification) => (
         <Notification
           key={notification.id}
           {...notification}
