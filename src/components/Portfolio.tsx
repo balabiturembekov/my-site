@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "@/components/features/Typewriter";
-import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import Image from "next/image";
 
 const categories = ["Все", "Web", "Mobile", "AI", "E-commerce", "CRM", "Landing"];
 const projects = [
@@ -93,7 +93,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           ×
         </button>
         <div className="relative w-full h-56 mb-4 rounded-xl overflow-hidden">
-          <OptimizedImage
+          <Image
             src={project.img.endsWith('.png') ? project.img.replace('.png', '.webp') : project.img}
             alt={project.title}
             width={600}
@@ -178,7 +178,7 @@ export default function Portfolio() {
                 onClick={() => setModalProject(p)}
               >
                 <div className="relative w-full h-56">
-                  <OptimizedImage
+                  <Image
                     src={p.img.endsWith('.png') ? p.img.replace('.png', '.webp') : p.img}
                     alt={p.title}
                     width={600}

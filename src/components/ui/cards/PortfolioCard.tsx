@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ExternalLink, Eye, TrendingUp, Zap, Star, Code, BarChart3, Calendar, Award, Target, Clock, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import Image from "next/image";
 
 interface PortfolioCardProps {
   title: string;
@@ -90,7 +90,7 @@ export function PortfolioCard({
           {/* Image Container */}
           <div className="relative overflow-hidden">
             <div className="relative w-full h-56">
-              <OptimizedImage
+              <Image
                 src={image.endsWith('.png') ? image.replace('.png', '.webp') : image}
                 alt={title}
                 width={600}
@@ -255,7 +255,7 @@ export function PortfolioCard({
               <div className="space-y-6">
                 {/* Image */}
                 <div className="relative h-64 rounded-lg overflow-hidden">
-                  <OptimizedImage
+                  <Image
                     src={image.endsWith('.png') ? image.replace('.png', '.webp') : image}
                     alt={title}
                     width={800}
